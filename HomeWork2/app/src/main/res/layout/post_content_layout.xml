@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+<ImageView
+    android:id="@+id/shop_bag"
+    android:layout_width="150dp"
+    android:layout_height="100dp"
+    android:contentDescription="@string/buy_pizza"
+    android:src="@drawable/shop"
+    android:text="@string/buy_pizza" />
+
+<ImageView
+    android:id="@+id/img_content"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:layout_marginTop="16dp"
+    android:layout_below="@+id/shop_bag"
+    android:contentDescription="@string/img_pizza"
+    android:src="@drawable/pizza" />
+
+<TextView
+    android:id="@+id/add_to_bag"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/add"
+    android:layout_toEndOf="@+id/shop_bag"
+    android:layout_alignParentTop="true"
+    style="@style/content_style"
+    />
+
+<TextView
+    android:id="@+id/price"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/price_product"
+    android:layout_below="@+id/add_to_bag"
+    android:layout_toEndOf="@+id/shop_bag"
+    style="@style/content_style"
+    />
+
+</RelativeLayout>

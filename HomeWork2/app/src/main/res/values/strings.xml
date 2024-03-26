@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Home Work 2</string>
+    <string name="app_name">Post Pizza</string>
+    <string name="img_pizza">pizza</string>
+    <string name="buy_pizza">buy</string>
+    <string name="add">Add to bag</string>
+    <string name="price_product">15$</string>
 </resources>
