@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Counter</string>
+    <string name="counter">0</string>
+    <string name="restart">Сброс</string>
+    <string name="empty">Все места свободны!</string>
+    <string name="noEmpty">Осталось мест :  </string>
+    <string name="full">Пассажиров слишко много!</string>
+</resources>
