@@ -7,6 +7,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
@@ -60,6 +63,15 @@ class MainActivity : AppCompatActivity() {
             } else {
                 emailTextInputLayout.error = "Некорректный ввод"
                 emailTextInputLayout.isErrorEnabled = true
+            }
+        }
+
+        //применение тёмной темы
+        findViewById<Button>(R.id.buttonTheme).setOnClickListener{
+            if (AppCompatDelegate.getDefaultNightMode()==MODE_NIGHT_YES){
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
             }
         }
     }
