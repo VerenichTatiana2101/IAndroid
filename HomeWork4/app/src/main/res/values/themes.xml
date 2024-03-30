@@ -6,4 +6,18 @@
     </style>
 
     <style name="Theme.HomeWork4" parent="Base.Theme.HomeWork4" />
+    <style name="PhoneStyle">
+        <item name="android:backgroundTint">#BB86FC</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+    <style name="TittleStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="PointsCount" parent="TittleStyle">
+        <item name="android:textColor">@color/grey</item>
+    </style>
+    <style name="CheckBoxStyle" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/turquoise</item>
+    </style>
 </resources>

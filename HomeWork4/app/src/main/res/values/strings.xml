@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Home Work 4</string>
+    <string name="app_name">Cats page</string>
+    <string name="option_one">Получать уведомлени</string>
+    <string name="option_authorization">Об авторизации на устройстве</string>
+    <string name="option_news">О новинках и предложениях</string>
+    <string name="progress_res">0</string>
+    <string name="phone">Телефон</string>
+    <string name="name">Имя</string>
+    <string name="cat">cat</string>
+    <string name="gender">Пол</string>
+    <string name="male">М</string>
+    <string name="female">Ж</string>
+    <string name="points">Баллы</string>
+    <string name="save">Сохранить</string>
 </resources>
