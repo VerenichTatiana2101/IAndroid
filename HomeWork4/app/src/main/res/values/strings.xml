@@ -12,4 +12,6 @@
     <string name="female">Ж</string>
     <string name="points">Баллы</string>
     <string name="save">Сохранить</string>
+    <string name="error">Проверьте введённые данные</string>
+    <string name="saved">Сохранено успешно</string>
 </resources>
