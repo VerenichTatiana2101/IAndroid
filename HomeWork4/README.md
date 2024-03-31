@@ -52,5 +52,5 @@ A && B истинно тогда и только тогда, когдаиAи B �
 используйтелогическое ИЛИ (||). A || B истинно, когда истинно только А, толькоB, иАи B.  
 
 Результат:  
-<img src="img/photo_1.jpg" width="200" alt="img"> -> <img src="img/photo_2.jpg" width="200" alt="img"> -> <img src="img/photo_3.jpg" width="200" alt="img">   
-<img src="img/photo_4.jpg" width="200" alt="img"> -> <img src="img/photo_5.jpg" width="200" alt="img"> -> <img src="img/photo_6.jpg" width="200" alt="img">
+<img src="img/photo_2.jpg" width="200" alt="img"> -> <img src="img/photo_3.jpg" width="200" alt="img"> -> <img src="img/photo_5.jpg" width="200" alt="img">   
+<img src="img/photo_1jpg" width="200" alt="img"> -> <img src="img/photo_4.jpg" width="200" alt="img"> -> <img src="img/photo_6.jpg" width="200" alt="img">
