@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
     <ImageView
@@ -20,7 +20,7 @@
         android:contentDescription="@string/cat" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/input_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -47,22 +47,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/phone"
-        android:inputType="phone"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/input_name">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="phone"
             style="@style/PhoneStyle"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -91,14 +91,14 @@
     </RadioGroup>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_material"
+        android:id="@+id/switch_notice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:checked="true"
         android:text="@string/option_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
     <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/checkbox"
@@ -109,10 +109,10 @@
         style="@style/CheckBoxStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_material" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_notice" />
 
     <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkbox2"
+        android:id="@+id/checkbox_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/option_news"
@@ -129,16 +129,16 @@
         android:text="@string/points"
         android:textAppearance="@style/TittleStyle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_news" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/pointsCount"
+        android:id="@+id/points_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/progress_res"
         android:textAppearance="@style/PointsCount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_news" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress"
@@ -157,6 +157,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save"
+        android:background="@drawable/selector_button"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/points"

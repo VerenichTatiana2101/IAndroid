@@ -13,5 +13,8 @@
     <string name="points">Баллы</string>
     <string name="save">Сохранить</string>
     <string name="error">Проверьте введённые данные</string>
-    <string name="saved">Сохранено успешно</string>
+    <string name="saved">Изменения сохранены</string>
+    <string name="m">Мужской</string>
+    <string name="f">Женский</string>
+    <string name="error_message">Некорректный ввод</string>
 </resources>

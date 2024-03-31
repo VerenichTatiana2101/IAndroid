@@ -4,89 +4,93 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.RadioGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.switchmaterial.SwitchMaterial
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import kotlin.random.Random
+import com.example.homework4.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val randomProgress = Random.nextInt(101)
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
-        //radioGroup
-        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
-        radioGroup.setOnCheckedChangeListener { _, buttonId ->
+        binding.pointsCount.text = "$randomProgress/100"
+        binding.progress.progress = randomProgress
+        binding.radioGroup.setOnCheckedChangeListener { _, buttonId ->
             when (buttonId) {
-                R.id.radioButtonOne -> showSnackbar("Мужской")
-                R.id.radioButtonTwo -> showSnackbar("Женский")
+                R.id.radioButtonOne -> showSnackbar(R.string.m)
+                R.id.radioButtonTwo -> showSnackbar(R.string.f)
             }
+            dataIsComplete()
         }
 
-        //TextInputLayout
-        val phoneInputLayout = findViewById<TextInputLayout>(R.id.textInputPhone)
-        val phoneEditText = findViewById<EditText>(R.id.phone)
-        phoneEditText.doOnTextChanged { text, _, _, _ ->
-            if (isPhoneValid(text)) phoneInputLayout.isErrorEnabled = false
+
+        binding.phone.doOnTextChanged { text, _, _, _ ->
+            if (isPhoneValid(text) || text.isNullOrEmpty()) binding.textInputPhone.isErrorEnabled = false
             else {
-                phoneInputLayout.error = "Некорректный ввод"
-                phoneInputLayout.isErrorEnabled = true
+                binding.textInputPhone.error = getString(R.string.error_message)
+                binding.textInputPhone.isErrorEnabled = true
             }
+            dataIsComplete()
         }
 
-        //checkBox
-        val checkBox: MaterialCheckBox = findViewById(R.id.checkbox)
-        val checkBox2: MaterialCheckBox = findViewById(R.id.checkbox2)
-        // SwitchMaterial
-        val switch: SwitchMaterial = findViewById(R.id.switch_material)
-        switch.setOnCheckedChangeListener { _, isChecked ->
+        binding.switchNotice.setOnCheckedChangeListener { _, isChecked ->
             if (!isChecked) {
-                checkBox.checkedState = MaterialCheckBox.STATE_UNCHECKED
-                checkBox2.checkedState = MaterialCheckBox.STATE_UNCHECKED
-                checkBox.isEnabled = false
-                checkBox2.isEnabled = false
+                binding.checkbox.checkedState = MaterialCheckBox.STATE_UNCHECKED
+                binding.checkboxNews.checkedState = MaterialCheckBox.STATE_UNCHECKED
+                binding.checkbox.isEnabled = false
+                binding.checkboxNews.isEnabled = false
             } else {
-                checkBox.isEnabled = true
-                checkBox2.isEnabled = true
+                binding.checkbox.isEnabled = true
+                binding.checkboxNews.isEnabled = true
             }
+            dataIsComplete()
         }
 
-        //progressBar
-        val randomProgress = Random.nextInt(101)
-        val pointsCount: TextView = findViewById(R.id.pointsCount)
-        val progressValue: ProgressBar = findViewById(R.id.progress)
-        pointsCount.text = "$randomProgress/100"
-        progressValue.progress = randomProgress
+        binding.checkbox.setOnClickListener {
+            dataIsComplete()
+        }
 
-        //Toast//Snackbar
-        val name = findViewById<TextInputEditText>(R.id.name)
-        val saveButton: Button = findViewById(R.id.save_data)
-        saveButton.setOnClickListener {
-            if (name.length() > 0
-                && !phoneInputLayout.isErrorEnabled
-                && (!switch.isChecked || switch.isChecked && (checkBox.isChecked || checkBox2.isChecked))
-            ) Snackbar.make(it, R.string.saved, Snackbar.LENGTH_LONG).show()
-            else Toast.makeText(this, R.string.error, Toast.LENGTH_LONG).show()
+        binding.checkboxNews.setOnClickListener {
+            dataIsComplete()
+        }
+
+        binding.name.doOnTextChanged { _, _, _, _ ->
+            dataIsComplete()
         }
     }
 
-    //radioGroup
-    private fun showSnackbar(s: String) {
+    private fun validChecked(): Boolean {
+        return !binding.switchNotice.isChecked
+                || binding.switchNotice.isChecked && (binding.checkbox.isChecked
+                || binding.checkboxNews.isChecked)
+    }
+
+    private fun showSnackbar(s: Int) {
         Snackbar.make(findViewById(android.R.id.content), s, Snackbar.LENGTH_SHORT).show()
     }
 
-    //TextInputLayout
     private fun isPhoneValid(phone: CharSequence?): Boolean {
         return !phone.isNullOrEmpty() && Patterns.PHONE.matcher(phone).matches()
+    }
+
+    private fun dataIsComplete() {
+        if (binding.name.length() > 0
+            && !binding.textInputPhone.isErrorEnabled
+            && validChecked()
+        ) {
+            binding.saveData.isEnabled = true
+            binding.saveData.setOnClickListener {
+                showSnackbar(R.string.saved)
+            }
+        } else binding.saveData.isEnabled = false
     }
 }
