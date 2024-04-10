@@ -45,13 +45,21 @@ class BlankFragment : Fragment() {
         _binding= FragmentBlankBinding.inflate(inflater)
 
         binding.button.setOnClickListener{
+            val bundle = Bundle().apply {
+                putString("param1", binding.inputText.text.toString())
+            }
             parentFragmentManager.commit {
-                replace<ImageFragment>(R.id.fragment_container)
+                replace<ImageFragment>(containerViewId = R.id.fragment_container, args = bundle)
                 addToBackStack(ImageFragment::class.java.simpleName)
             }
         }
         //parentFragmentManager.popBackStack() программно закрыть
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

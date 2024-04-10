@@ -14,13 +14,23 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="@string/hello_blank_fragment" />
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/input_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        android:layout_margin="20dp"
+        />
+
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:layout_constraintTop_toBottomOf="@+id/input_text"
         android:layout_margin="20dp"
         />
 
