@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">QuizzyMania</string>
+    <string name="hello">Здравствуйте, гений вопросов и ответов!\n Давайте начнем веселую игру!</string>
+    <string name="start">START</string>
+    <string name="quiz_animals">Animals Quiz</string>
+
+    <string name="button_quiz_text">Отправить</string>
+    <string name="question_1">Какого цвета вороной конь?</string>
+    <string name="answer1_question1">Синий</string>
+    <string name="answer2_question1">Коричневый</string>
+    <string name="answer3_question1">Серый</string>
+    <string name="answer4_question1">Чёрный</string>
+
+    <string name="question_2">Чем питаются калибри?</string>
+    <string name="answer1_question2">Нектаром и \nмелкими насекомыми</string>
+    <string name="answer2_question2">Цветами и фруктами</string>
+    <string name="answer3_question2">Мелкой рыбой</string>
+    <string name="answer4_question2">Семенами трав</string>
+
+    <string name="question_3">Какая наука изучает \nископаемых животных?</string>
+    <string name="answer1_question3">Сейсмология</string>
+    <string name="answer2_question3">Орнитология</string>
+    <string name="answer3_question3">Психология</string>
+    <string name="answer4_question3">Палеонтология</string>
+
+    <string name="button_result_text">Всё сначала!</string>
+    <string name="result_title">"Результат: "</string>
+    <string name="result_win">"ВЫ ВЫИГРАЛИ!!!"</string>
+    <string name="result_full">"Вы проиграли((\nпопробуйте ещё раз"</string>
 </resources>
