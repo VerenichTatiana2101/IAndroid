@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet>
+<!--    обрабатывает начальное и конечное положение картинки и создаёт плавный переход-->
+    <changeImageTransform />
+<!--    отвечает за свойство и изменение во время анимации-->
+    <changeTransform />
+<!--    отвечает за границы других элементов в layout-->
+    <changeBounds />
+</transitionSet>
