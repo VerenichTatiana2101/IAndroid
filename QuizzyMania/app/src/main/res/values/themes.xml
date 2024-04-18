@@ -9,6 +9,10 @@
         <item name="colorOnSecondary">#C9D6BA</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:fontFamily">@font/amiko</item>
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_left</item>
+        <item name="android:windowExitTransition">@android:transition/slide_right</item>
     </style>
 
     <style name="Theme.QuizzyMania" parent="Base.Theme.QuizzyMania" />

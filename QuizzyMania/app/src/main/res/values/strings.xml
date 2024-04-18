@@ -26,5 +26,5 @@
     <string name="button_result_text">Всё сначала!</string>
     <string name="result_title">"Результат: "</string>
     <string name="result_win">"ВЫ ВЫИГРАЛИ!!!"</string>
-    <string name="result_full">"Вы проиграли((\nпопробуйте ещё раз"</string>
+    <string name="result_full">"Вы проиграли(("</string>
 </resources>

@@ -24,15 +24,12 @@ class Quiz : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentQuizBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.buttonStart.setOnClickListener {
             findNavController().navigate(R.id.action_quizFragment_to_questionFragment)
         }
