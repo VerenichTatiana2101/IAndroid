@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Localization</string>
+
+    <string-array name="planets">
+        <item>Земля</item>
+        <item>Марс</item>
+        <item>Меркурий</item>
+        <item>Венера</item>
+        <item>Юпитер</item>
+        <item>Нептун</item>
+        <item>Уран</item>
+    </string-array>
+
+
+    <plurals name="count_new_messages" tools:ignore="UnusedQuantity">
+        <item quantity="one">%1d новое сообщение</item>
+        <item quantity="two">%1d новых сообщения</item>
+        <item quantity="zero">%1d новых сообщений</item>
+        <item quantity="few">%1d новых сообщений</item>
+        <item quantity="many">%1d новых сообщений</item>
+        <item quantity="other">%1d новых сообщений</item>
+    </plurals>
+</resources>

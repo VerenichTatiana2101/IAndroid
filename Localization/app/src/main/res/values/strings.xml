@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Localization</string>
+    <string name="open_date_picker" translatable="false">Open date picker</string>
+    <string name="open_time_picker" translatable="false">Open time picker</string>
+    <string name="choose_the_date" translatable="false">Тайтл диалога даты</string>
+    <string name="choose_the_time">Тайтл диалога времени</string>
+    <string-array name="planets">
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Jupiter</item>
+        <item>Neptune</item>
+        <item>Uranus</item>
+    </string-array>
+
+    <integer-array name="years">
+        <item>2010</item>
+        <item>2018</item>
+        <item>2020</item>
+        <item>2014</item>
+        <item>2011</item>
+        <item>2021</item>
+        <item>2017</item>
+        <item>2004</item>
+        <item>2006</item>
+    </integer-array>
+
+    <plurals name="count_new_messages">
+        <item quantity="one">%1d new message</item>
+        <item quantity="other">%1d new messages</item>
+    </plurals>
+
+
+</resources>
