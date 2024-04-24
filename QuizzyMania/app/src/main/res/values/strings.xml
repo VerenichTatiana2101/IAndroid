@@ -1,30 +1,32 @@
 <resources>
-    <string name="app_name">QuizzyMania</string>
-    <string name="hello">Здравствуйте, гений вопросов и ответов!\n Давайте начнем веселую игру!</string>
-    <string name="start">START</string>
-    <string name="quiz_animals">Animals Quiz</string>
+    <string name="app_name" translatable="false">QuizzyMania</string>
+    <string name="hello">Hello, Q&amp;A genius! Let\'s start the fun game!</string>
+    <string name="start" translatable="false">START</string>
+    <string name="quiz_animals" translatable="false">Animals Quiz</string>
 
-    <string name="button_quiz_text">Отправить</string>
-    <string name="question_1">Какого цвета вороной конь?</string>
-    <string name="answer1_question1">Синий</string>
-    <string name="answer2_question1">Коричневый</string>
-    <string name="answer3_question1">Серый</string>
-    <string name="answer4_question1">Чёрный</string>
+    <string name="button_quiz_text">Send</string>
+    <string name="question_1">What color is a rude horse?</string>
+    <string name="answer1_question1">Blue</string>
+    <string name="answer2_question1">Brown</string>
+    <string name="answer3_question1">Grey</string>
+    <string name="answer4_question1">Black</string>
 
-    <string name="question_2">Чем питаются калибри?</string>
-    <string name="answer1_question2">Нектаром и \nмелкими насекомыми</string>
-    <string name="answer2_question2">Цветами и фруктами</string>
-    <string name="answer3_question2">Мелкой рыбой</string>
-    <string name="answer4_question2">Семенами трав</string>
+    <string name="question_2">What do calibers eat?</string>
+    <string name="answer1_question2">Nectar and small insects</string>
+    <string name="answer2_question2">Flowers and fruits</string>
+    <string name="answer3_question2">Small fish</string>
+    <string name="answer4_question2">Herb seeds</string>
 
-    <string name="question_3">Какая наука изучает \nископаемых животных?</string>
-    <string name="answer1_question3">Сейсмология</string>
-    <string name="answer2_question3">Орнитология</string>
-    <string name="answer3_question3">Психология</string>
-    <string name="answer4_question3">Палеонтология</string>
+    <string name="question_3">What science studies\n fossil animals?</string>
+    <string name="answer1_question3">Seismology</string>
+    <string name="answer2_question3">Ornithology</string>
+    <string name="answer3_question3">Psychology</string>
+    <string name="answer4_question3">Paleontology</string>
 
-    <string name="button_result_text">Всё сначала!</string>
-    <string name="result_title">"Результат: "</string>
-    <string name="result_win">"ВЫ ВЫИГРАЛИ!!!"</string>
-    <string name="result_full">"Вы проиграли(("</string>
+    <string name="button_result_text">All over again!</string>
+    <string name="result_title">Result:</string>
+    <string name="result_win">YOU WON!!!</string>
+    <string name="result_full">You lose((</string>
+    <string name="open_date_picker">Enter your date of birth</string>
+    <string name="choose_the_date">Enter your date of birth</string>
 </resources>
