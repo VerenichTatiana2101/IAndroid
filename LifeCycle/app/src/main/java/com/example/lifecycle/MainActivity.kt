@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             timerValue = savedInstanceState.getInt("timerValue")
             timerIsActive = savedInstanceState.getBoolean("timerIsActive")
             timeCounter = timerValue
+            //если отсчёт завершился, при повороте экрана он не запустится вновь
             handler.post {
                 updateTimer()
                 if (timerIsActive) startTimer()
@@ -37,12 +38,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         handler.post {
+            // обработчик Slider для установки времени
             binding.slider.addOnChangeListener { _, value, _ ->
                 timerValue = value.toInt()
                 timeCounter = timerValue
                 updateUI()
             }
 
+            //обработчик кнопки старта и остановки таймера
             binding.buttonStartStop.setOnClickListener {
                 if (timerIsActive) {
                     timerIsActive = false
@@ -55,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUI() {
+        //деактивируем slider, чтобы пользователь не мог нарушить работу программы
         binding.slider.isEnabled = !timerIsActive
         binding.buttonStartStop.text = if (timerIsActive) "STOP" else "START"
         binding.progressBar.max = binding.slider.value.toInt()
@@ -89,6 +93,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun finishTimer() {
+        //по окончанию работы счётчика тоаст выдаст сообщение и обновится
         if (!timerIsActive) {
             Toast.makeText(this, "Timer Finished", Toast.LENGTH_SHORT).show()
         }
@@ -112,6 +117,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // сохранение данных, после запуска отсчёта времени и поворота экрана счётчик продолжит отсчёт.
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt("timerValue", timeCounter)
         outState.putBoolean("timerIsActive", timerIsActive)
