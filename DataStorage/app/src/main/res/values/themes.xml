@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.DataStorage" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#394870</item>
+        <item name="colorTertiary">#144F10</item>
+        <item name="colorOnPrimary">#F7F5F5</item>
+        <item name="colorSurface">#7C8AA7</item>
+        <item name="colorSecondary">#5F462A</item>
+        <item name="colorSecondaryVariant">#D6AD77</item>
+        <item name="colorOnSecondary">#C9D6BA</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_left</item>
+        <item name="android:windowExitTransition">@android:transition/slide_right</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Theme.MyTheme" parent="Theme.DataStorage" />
+    <style name="helloStyle" parent="Theme.DataStorage">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DataStorage</string>
+    <string name="editText">INPUT TEXT</string>
+    <string name="button">SAVED</string>
+    <string name="textview">no data aviable</string>
+    <string name="button2">CLEAR</string>
+</resources>
