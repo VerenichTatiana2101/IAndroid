@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Memory</string>
+    <string name="textview">ВЫВОД ТЕКСТА</string>
+    <string name="button">СОХРАНИТЬ ДАННЫЕ</string>
+    <string name="button2">ЗАГРУЗИТЬ ДАННЫЕ</string>
+    <string name="editText">ВВОД ТЕКСТА</string>
+</resources>
