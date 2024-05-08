@@ -1,6 +1,10 @@
 package com.example.mvvmpattern.ui.main
 
 sealed class State {
-    data object Loading: State()
-    data object Success: State()
+    object Loading: State()
+    object Success: State()
+    data class Error(
+        val loginError: String?,
+        val passwordError: String?
+    ): State()
 }

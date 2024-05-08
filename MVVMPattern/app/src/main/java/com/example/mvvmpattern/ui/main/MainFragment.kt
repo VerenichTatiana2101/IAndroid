@@ -1,18 +1,15 @@
 package com.example.mvvmpattern.ui.main
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.mvvmpattern.databinding.FragmentMainBinding
-
-import com.example.mvvmpattern.R
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import com.google.android.material.snackbar.Snackbar
 
 class MainFragment : Fragment() {
 
@@ -20,8 +17,9 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private val viewModel: MainViewModel by viewModels()
     private lateinit var binding: FragmentMainBinding
+    // добалвение [MainViewModelFactory] в делегат [viewModels]
+    private val viewModel: MainViewModel by viewModels{MainViewModelFactory()}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,10 +33,13 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        binding.viewModel = viewModel
+//        binding.lifecycleOwner = viewLifecycleOwner
+
         binding.button.setOnClickListener {
-            val login = binding.login.toString()
-            val password = binding.password.toString()
-            viewModel.onSignInClick(login, password)
+            val login = binding.login.text.toString()
+            val password = binding.password.text.toString()
+            viewModel.onSignClick(login, password)
         }
 
         // отвечает за жизненный цикл
@@ -49,12 +50,33 @@ class MainFragment : Fragment() {
                         when (state) {
                             State.Loading -> {
                                 binding.progress.isVisible = true
+                                binding.loginLayout.error = null
+                                binding.passwordLayout.error = null
+                                binding.button.isEnabled = false
                             }
 
                             State.Success -> {
                                 binding.progress.isVisible = false
+                                binding.loginLayout.error = null
+                                binding.passwordLayout.error = null
+                                binding.button.isEnabled = true
+                            }
+
+                            is State.Error -> {
+                                binding.progress.isVisible = false
+                                binding.loginLayout.error = state.loginError
+                                binding.passwordLayout.error = state.passwordError
+                                binding.button.isEnabled = true
                             }
                         }
+                    }
+            }
+
+        viewLifecycleOwner.lifecycleScope
+            .launchWhenStarted {
+                viewModel.error
+                    .collect { message ->
+                        Snackbar.make(requireView(), message, Snackbar.LENGTH_SHORT).show()
                     }
             }
     }
