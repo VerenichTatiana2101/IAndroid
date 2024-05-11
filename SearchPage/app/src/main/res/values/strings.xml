@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SearchPage</string>
+    <string name="enter_search">ведите запрос поиска</string>
+    <string name="click_search">click search</string>
+    <string name="result">Здесь будет отображаться результат запроса</string>
+    <string name="answer">Запрос выполнен успешно</string>
+    <string name="error_text">По Вашему запросу ничего не найдено</string>
+    <string name="search">Поиск… </string>
+    <string name="request_error">Ошибка запроса</string>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_img"
+    android:padding="30dp"
+    tools:context=".model.MainFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_container"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/gradient">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchLayout"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            app:boxBackgroundMode="none"
+            android:hint="@string/enter_search"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/button"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button"
+            android:contentDescription="@string/click_search"
+            android:src="@drawable/baseline_saved_search_24"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/result_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:text="@string/result"
+        app:layout_constraintTop_toBottomOf="@+id/search_container"
+        android:layout_marginTop="40dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
