@@ -12,12 +12,13 @@ import kotlinx.coroutines.launch
 private const val TAG = "MainViewModel"
 private const val REQUEST_ERROR = "Ошибка запроса"
 private const val REQUEST_EMPTY = "Запрос не найден"
+private const val EMPTY_VALUE = ""
 
 class MainViewModel(
     private val repository: MainRepository
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow<State>(State.Success)
+    private val _state = MutableStateFlow<State>(State.Initialization)
     val state = _state.asStateFlow()
 
     private val _error = Channel<String>()
@@ -52,7 +53,7 @@ class MainViewModel(
 
                 } catch (e: Exception) {
                     _error.send(e.toString())
-                    _state.value = State.Error(null)
+                    _state.value = State.Error(EMPTY_VALUE)
                 }
             }
         }
