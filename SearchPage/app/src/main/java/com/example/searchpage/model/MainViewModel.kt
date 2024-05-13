@@ -10,9 +10,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 private const val TAG = "MainViewModel"
-private const val REQUEST_ERROR = "Ошибка запроса"
-private const val REQUEST_EMPTY = "Запрос не найден"
-private const val EMPTY_VALUE = ""
+private const val ERROR_VALUE = "Ошибка сети"
 
 class MainViewModel(
     private val repository: MainRepository
@@ -23,42 +21,29 @@ class MainViewModel(
 
     private val _error = Channel<String>()
     val error = _error.receiveAsFlow()
-    private var count = 0
 
     init {
         Log.d(TAG, "init: ")
-
     }
 
     fun onSignClick(searchData: String) {
         Log.d(TAG, "onSignClick called with data: $searchData")
+        /*
+        if (searchData.length < 3) {
+            _state.value = State.Error(REQUEST_ERROR) //ошибка
+        } else {*/
         viewModelScope.launch {
-            /* обработка отсутствия и ошибочного ввода запроса*/
-            if (searchData.length < 3) {
-                _state.value = State.Error(REQUEST_ERROR) //ошибка
-                _error.send(REQUEST_ERROR)
-            } else {
-                /*
-                * при верном вводе имитация
-                * часть вывод результата
-                * часть - ошибка сети
-                * часть - результат не найден
-                */
-                _state.value = State.Loading //загрузка
-
-                try {
-                    repository.getData()
-                    if (count++ % 2 == 0) _state.value = State.Success //успешно
-                    else _state.value = State.Error(REQUEST_EMPTY) //ошибка
-
-                } catch (e: Exception) {
-                    _error.send(e.toString())
-                    _state.value = State.Error(EMPTY_VALUE)
-                }
+            _state.value = State.Loading //загрузка
+            try {
+                val result = repository.getData(searchData)
+                _state.value = State.Success(result) //успешно
+            } catch (e: Exception) {
+                _error.send(e.toString())
+                _state.value = State.Error(ERROR_VALUE)
             }
         }
+        //}
     }
-
 
     override fun onCleared() {
         Log.d(TAG, "onCleared: ")

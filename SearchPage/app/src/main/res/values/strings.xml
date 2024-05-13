@@ -3,10 +3,10 @@
     <string name="enter_search">введите запрос поиска</string>
     <string name="click_search">click search</string>
     <string name="result">Здесь будет отображаться результат запроса</string>
-    <string name="answer">Запрос выполнен успешно</string>
-    <string name="error_text">По запросу ничего не найдено</string>
+    <string name="answer">Запрос\n</string>
     <string name="search">Поиск… </string>
     <string name="request_error">Ошибка запроса</string>
     <string name="start_result">По запросу</string>
     <string name="end_result">`\n ничего не найдено</string>
+    <string name="addAnswer">"\n выполнен успешно"</string>
 </resources>
