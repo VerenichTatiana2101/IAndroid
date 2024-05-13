@@ -18,7 +18,6 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentMainBinding
-    // добалвение [MainViewModelFactory] в делегат [viewModels]
     private val viewModel: MainViewModel by viewModels{MainViewModelFactory()}
 
     override fun onCreateView(
@@ -26,22 +25,23 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.viewModel = viewModel
-//        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
+        /* это можно удалить
         binding.button.setOnClickListener {
             val login = binding.login.text.toString()
             val password = binding.password.text.toString()
             viewModel.onSignClick(login, password)
-        }
+        }*/
 
+        /* теперь это можно удалить
         // отвечает за жизненный цикл
         viewLifecycleOwner.lifecycleScope //scope для запуска корутин
             .launchWhenStarted {
@@ -70,7 +70,7 @@ class MainFragment : Fragment() {
                             }
                         }
                     }
-            }
+            }*/
 
         viewLifecycleOwner.lifecycleScope
             .launchWhenStarted {

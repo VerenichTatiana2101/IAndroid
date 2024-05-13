@@ -20,6 +20,9 @@ class MainViewModel(
     private val _state = MutableStateFlow<State>(State.Success)
     val state = _state.asStateFlow()
 
+    private val _credentials = MutableStateFlow(Credentials())
+    val credentials = _credentials.asStateFlow()
+
     private val _error = Channel<String>()
     val error = _error.receiveAsFlow()
 
@@ -27,8 +30,13 @@ class MainViewModel(
         Log.d(TAG, "init: ")
     }
 
-    fun onSignClick(login: String, password: String) {
+    fun onSignClick() {
         Log.d(TAG, "onSignClick: ")
+
+        val login = credentials.value.login
+        val password = credentials.value.password
+
+
         viewModelScope.launch {
             val isLoginEmpty = login.isBlank()
             val isPasswordEmpty = password.isBlank()

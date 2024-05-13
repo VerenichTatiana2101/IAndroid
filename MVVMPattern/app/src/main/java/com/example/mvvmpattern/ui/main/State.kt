@@ -1,10 +1,18 @@
 package com.example.mvvmpattern.ui.main
 
-sealed class State {
-    object Loading: State()
-    object Success: State()
+sealed class State(
+    val isLoading: Boolean = false,
+    open val loginError: String? = null,
+    open val passwordError: String? = null
+
+) {
+    object Loading : State(isLoading = true)
+    object Success : State()
     data class Error(
-        val loginError: String?,
-        val passwordError: String?
-    ): State()
+        override val loginError: String?,
+        override val passwordError: String?
+    ) : State(
+        loginError = loginError,
+        passwordError = passwordError
+    )
 }
