@@ -1,13 +1,11 @@
 package com.example.searchpage.model
 
-sealed class State {
-    object Initialization: State()
-    object Loading: State()
-    data class Success(
-        var result: String
-    ): State()
-
-    data class Error(
-        val requestError: String
-    ): State()
+sealed class State(
+    open val result: String? = null
+) {
+    data object Initialization : State()
+    data class Loading(override val result: String?) : State(result = result)
+    data class Success(override val result: String) : State(result = result)
+    data class Error(override val result: String) : State(result = result)
 }
+
