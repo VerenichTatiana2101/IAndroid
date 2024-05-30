@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WordCounter</string>
+    <string name="word">введите слово</string>
+    <string name="words">Словарь</string>
+</resources>
