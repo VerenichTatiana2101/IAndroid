@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ArhitectureHW</string>
+    <string name="mainfragment">MainFragment</string>
+    <string name="refresh">Refresh</string>
+</resources>
